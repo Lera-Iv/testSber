@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Header } from '@/shared/ui';
 import { Logo } from '@/entities/Logo';
 import styled from 'styled-components';
+import { MainPage } from '@/pages/MainPage';
 
 const Container = styled.div`
   display: flex;
@@ -24,6 +25,7 @@ export const Layout: FC = () => {
         <Logo title={LOGO_TEXT} subTitle={LOGO_SUBTITLE} />
       </Header>
       <Outlet />
+      <MainPage/>
     </Container>
   );
 };

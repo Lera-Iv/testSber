@@ -25,7 +25,8 @@ export default ({ mode }: TEnv): Configuration => ({
     path: path.resolve(__dirname, 'build'),
     filename: '[name].bundle.js',
     chunkFilename: '[name].chunk.js',
-    clean: true
+    clean: true,
+    publicPath: '/',  
   },
   plugins: [
     new HtmlWebpackPlugin({
