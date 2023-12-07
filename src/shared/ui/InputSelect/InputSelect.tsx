@@ -21,11 +21,12 @@ export const InputSelect: FC<IInputSelectProps> = ({
   const [selectedTitle, setSelectedTitle] = useState<string | undefined>(initialValue);
 
   useEffect(() => {
-    if (onSelectedItem && currencyData && currencyData.length > 0) {
-      onSelectedItem(currencyData[0]);
+    if(initialValue) {
+      setSelectedTitle(initialValue)
+      onSelectedItem(currencyData[0])
     }
-    setSelectedTitle(initialValue);
-  }, [currencyData, initialValue, isError, isLoading, onSelectedItem]);
+  
+  }, [currencyData]);
 
   const handleToggleOpen = () => {
     setIsOpen((prevState) => !prevState);
@@ -50,7 +51,7 @@ export const InputSelect: FC<IInputSelectProps> = ({
         {isError && <InputListItem as={'li'}>Error...</InputListItem>}
 
         {isLoading && <InputListItem as={'li'}>Loading...</InputListItem>}
-
+        
         {currencyData?.map((currencyItem) => (
           <InputListItem
             as={'li'}
